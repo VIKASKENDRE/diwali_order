@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diwali Sweets Order</title>
+</head>
+<body>
+    <h1>🎉 Order Diwali Sweets & Snacks 🎉</h1>
+    <form method="POST">
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Phone Number:</label><br>
+        <input type="text" name="phone" required><br><br>
+
+        <label>Building/Flat Number:</label><br>
+        <input type="text" name="address" required><br><br>
+
+        <h3>Select Items:</h3>
+        {% for item, price in items.items() %}
+            <input type="checkbox" name="items" value="{{ item }}"> {{ item }} - ₹{{ price }}/kg
+            <input type="number" name="{{ item }}_qty" min="1" value="1" style="width: 50px;"><br><br>
+        {% endfor %}
+
+        <button type="submit">Proceed to Payment</button>
+    </form>
+</body>
+</html>
